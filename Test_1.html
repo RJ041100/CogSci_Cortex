@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating Question Mark</title>
+<style>
+  /* Sets the true background color requested */
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 229, 218); 
+    font-family: "Georgia", serif;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Styles the question mark with red, brown, and beige tones */
+  .question-mark {
+    font-size: 18rem;
+    font-weight: bold;
+    color: #7b1113; /* Deep ruby red */
+    text-shadow: 
+      3px 3px 0px #b59a68,   /* Beige/Brown outline */
+      -3px -3px 0px #b59a68, 
+      3px -3px 0px #b59a68, 
+      -3px 3px 0px #b59a68,
+      inset 2px 2px 5px rgba(255, 255, 255, 0.5); /* Inner highlight */
+    
+    /* Applies the floating animation */
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Creates the animated shadow underneath */
+  .shadow {
+    width: 120px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    filter: blur(10px);
+    
+    /* Applies the shadow pulsing animation to match the float */
+    animation: shadowPulse 3s ease-in-out infinite;
+  }
+
+  /* Keyframes for the floating text */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Keyframes for the shadow shrinking/expanding */
+  @keyframes shadowPulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(0.6); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.7; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="question-mark">?</div>
+    <div class="shadow"></div>
+  </div>
+
+</body>
+</html>
