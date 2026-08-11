@@ -359,93 +359,60 @@
   }
 
   /* ============ FEATURED TALK ============ */
-  .featured-talk {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 48px 44px;
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-  }
 
-  .featured-talk::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
-    background: var(--accent);
+
+
+  
+/*===============================Modified Changess ==============================*/
+
+
+/* ============ FEATURED TALK IMAGE UPDATES ============ */
+.featured-talk-inner {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Text takes left side, image takes right */
+  gap: 40px;
+  align-items: center;
+}
+
+.featured-image-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%; /* Creates a perfect circle */
+  border: 3px solid var(--accent); /* Uses your established ruby red accent */
+  overflow: hidden;
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.featured-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Automatically crops the photo without stretching or squishing */
+  object-position: center 15%; /* Prioritizes the upper-center of the photo to avoid cutting off the head */
+}
+
+/* Add this to your existing @media (max-width: 900px) block */
+@media (max-width: 900px) {
+  .featured-talk-inner {
+    grid-template-columns: 1fr; /* Stacks everything in one column */
+    text-align: center;
+  }
+  
+  .featured-image-wrapper {
+    margin: 0 auto 32px auto; /* Centers the image */
+    order: -1; /* Pushes the image above the text on small screens */
   }
 
   .featured-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--highlight);
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    justify-content: center; /* Centers the eyebrow and pulse dot */
   }
-
-  .featured-eyebrow .pulse {
-    width: 8px;
-    height: 8px;
-    background: var(--accent-soft);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.4); }
-  }
-
-  .featured-date {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: 'opsz' 60;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--highlight);
-    letter-spacing: 0.02em;
-    margin-bottom: 12px;
-  }
-
-  .featured-title {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: 'opsz' 60, 'SOFT' 60;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    letter-spacing: -0.015em;
-  }
-
-  .featured-speaker {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    color: var(--paper);
-    opacity: 0.85;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-
-  .featured-speaker strong {
-    font-weight: 500;
-  }
-
+  
   .featured-details {
-    display: flex;
-    gap: 24px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(243, 237, 225, 0.2);
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--paper);
-    opacity: 0.7;
+    justify-content: center; /* Centers the bottom details */
   }
+}
+
+
+
 
   /* ============ NEURAL DECORATION ============ */
   .neural-decoration {
@@ -593,6 +560,8 @@
 
 
   /*================================Update Terminated=================================================================================================*/
+  
+  
   .talk-card {
     border-right: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
@@ -1048,7 +1017,7 @@
     margin-bottom: 16px;
     letter-spacing: -0.005em;
   }
-
+/* 
   .archive-empty-body {
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
@@ -1056,8 +1025,31 @@
     max-width: 480px;
     margin: 0 auto;
     line-height: 1.6;
+  } */
+
+  /* ============ Another Changee ============ */
+  .archive-video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 56.25% padding-bottom creates a perfect 16:9 aspect ratio */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 56px; 
+    border: 1px solid var(--rule); /* Matches your site's subtle borders */
+    border-radius: 4px; /* Optional: adds a slight softening to the harsh iframe corners */
+    background: var(--paper-deep); /* Shows a subtle color while the iframe loads */
   }
 
+  .archive-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  /*================================Update Terminated=================================================================================================*/
   /* ============ SUBSCRIBE ============ */
   .subscribe-section {
     background: var(--ink);
@@ -1356,24 +1348,43 @@
           </div>
         </div>
       </div>
+      
+
+
 
       <div class="featured-talk">
-        <div class="featured-eyebrow">
-          <span class="pulse"></span>
-          Inaugural Lecture
+        <div class="featured-talk-inner"> 
+    
+          <div class="featured-text">
+          <div class="featured-eyebrow">
+          <span class="pulse"></span> Next Talk
+          </div>
+          <div class="featured-date">20 August 2026</div>
+          <div class="featured-title">The Evolutionary Roots of Mind</div>
+          <div class="featured-speaker"><strong>Prof. Anindya Sinha</strong></div>
+          <div class="featured-details">
+            <span>AB-1 201</span>
+            <span>4:00 PM</span>
+          </div>
         </div>
-        <div class="featured-date">20 August 2026 — 4:00 PM</div>
-        <h2 class="featured-title">The Evolutionary Roots of Mind</h2>
-        <p class="featured-speaker">
-          <strong>Prof. Anindya Sinha</strong> — National Institute of Advanced Studies<br>
-          &amp; University of Trans-Disciplinary Health Sciences and Technology
-        </p>
-        <div class="featured-details">
-          <span>AB-1 201 · IITGN</span>
-          <span>·</span>
-          <span>Hybrid attendance</span>
+
+        <div class="featured-image-wrapper">
+        <img src="/media/rj/Projects/Cortex/Imges_Used/Speaker_for_website.jpg" alt="Prof. Anindya Sinha" class="featured-photo">
+        </div>
+
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+      
+      
     </div>
   </div>
 </section>
@@ -1458,7 +1469,8 @@
       <div class="in-focus-content">
         <div class="in-focus-section-label">About this Talk</div>
         <p class="in-focus-abstract placeholder">
-          Talk title and abstract forthcoming. Prof. Sinha's research spans primate cognition, sociality, and the evolutionary roots of mind — and his inaugural talk will draw from this work.
+          In his upcoming talk, "The Evolutionary Roots of Mind" , Prof. Anindya Sinha will explore how complex social dynamics drove the evolution of advanced cognition in primates. Drawing on over three decades of research with bonnet macaques, he will examine their remarkable ability to evaluate relationships, form mental representations, and develop a rudimentary sense of self. Challenging traditional, language-centric definitions of consciousness, this lecture will delve into the philosophical and empirical questions surrounding primate ethology, and will offer a profound look into the conscious decision-making and unique, lived experiences of more-than-human lifeworlds.
+          
         </p>
         <div class="in-focus-section-label">About the Speaker</div>
         <p class="in-focus-bio">
@@ -1503,13 +1515,23 @@
       </div>
     </div>
 
-    <div class="archive-empty">
+    <!-- <div class="archive-empty">
       <div class="archive-empty-mark">§</div>
       <h3 class="archive-empty-title">The archive begins this fall.</h3>
       <p class="archive-empty-body">
         Recordings, slides, and abstracts from each lecture will be added here as the inaugural season progresses. Speakers who consent to recording will have their talks made openly available.
       </p>
     </div>
+     -->
+    <div class="archive-video-wrapper">
+    <iframe 
+        src="https://youtu.be/VkuLHz5ARbI?si=13rZLcfumKunsRfN" 
+        title="Cortex Lecture Series Archive" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
   </div>
 </section>
 
