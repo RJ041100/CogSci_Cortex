@@ -391,8 +391,8 @@
 }
 
 .featured-image-wrapper {
-  width: 420px;
-  height: 420px;
+  width: 280px;
+  height: 280px;
   border-radius: 70%; /* Creates a perfect circle */
   border: 3px solid var(--accent); /* Uses your established ruby red accent */
   overflow: hidden;
@@ -559,6 +559,75 @@
   border-radius: 50%;
   filter: blur(6px);
   animation: shadowPulse 3s ease-in-out infinite;
+}
+
+/* ============ BOUNCING & FLIPPING ANIMATIONS ============ */
+
+.bouncing-wrapper {
+  /* 1 second bounce loop */
+  animation: bounceFast 2s ease-in-out infinite; 
+  position: relative;
+  z-index: 2;
+  margin-bottom: 12px;
+  perspective: 1000px; /* Gives the flip realistic 3D depth */
+}
+
+.flipping-container {
+  width: 140px; /* Adjust this to fit your specific logo */
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  /* 3 second flip loop (spans exactly 3 bounces) */
+  animation: flipEveryThird 3s linear infinite; 
+}
+
+.flip-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side of the element */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-face {
+  object-fit: contain;
+}
+
+.question-face {
+  transform: rotateY(180deg); /* Pre-flipped so it stays hidden on the back */
+  font-family: 'Fraunces', serif;
+  font-size: clamp(5rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent); 
+  text-shadow: 
+    2px 2px 0px var(--highlight), 
+    -2px -2px 0px var(--highlight), 
+    2px -2px 0px var(--highlight), 
+    -2px 2px 0px var(--highlight);
+}
+
+/* ============ THE KEYFRAMES ============ */
+
+@keyframes bounceFast {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-24px); }
+}
+
+@keyframes flipEveryThird {
+  0%, 60% { 
+    transform: rotateY(0deg); /* Bounces 1 and 2: Logo faces forward */
+  }
+  66%, 94% { 
+    transform: rotateY(180deg); /* Bounce 3: Flips to show the Question Mark */
+  }
+  100% { 
+    transform: rotateY(360deg); /* Flips cleanly back to start the loop over */
+  }
 }
 
 .placeholder-label {
@@ -1431,8 +1500,8 @@
         <h2 class="section-title">The <em>Lineup</em></h2>
       </div>
       <div class="section-meta">
-        3rd Thursday · 4:00 PM<br>
-        Dates confirmed monthly
+        Lectures every 3rd Thursday <br>
+        4:00 PM · IIT Gandhinagar
       </div>
     </div>
 
@@ -1459,29 +1528,67 @@ Nonhuman Primate</h3>
         </div>
       </div>
       
+
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark"> <img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
-          <div class="question-shadow"></div>
+    
+          <div class="bouncing-wrapper">
+      
+            <div class="flipping-container">
+        
+              <img src="Logo.png" alt="Cortex Logo" class="flip-face logo-face">
+        
+              <div class="flip-face question-face">?</div>
+          </div>
+      
         </div>
+    
+        <div class="question-shadow"></div>
+        </div>
+  
         <span class="placeholder-label">Sep Talk TBD</span>
       </div>
 
 
-
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark"> <img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
-          <div class="question-shadow"></div>
+    
+          <div class="bouncing-wrapper">
+      
+            <div class="flipping-container">
+        
+              <img src="Logo.png" alt="Cortex Logo" class="flip-face logo-face">
+        
+              <div class="flip-face question-face">?</div>
+          </div>
+      
         </div>
+    
+        <div class="question-shadow"></div>
+        </div>
+  
         <span class="placeholder-label">Oct Talk TBD</span>
       </div>
 
+
+
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark"><img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
-          <div class="question-shadow"></div>
+    
+          <div class="bouncing-wrapper">
+      
+            <div class="flipping-container">
+        
+              <img src="Logo.png" alt="Cortex Logo" class="flip-face logo-face">
+        
+              <div class="flip-face question-face">?</div>
+          </div>
+      
         </div>
+    
+        <div class="question-shadow"></div>
+        </div>
+  
         <span class="placeholder-label">Nov Talk TBD</span>
       </div>
 
@@ -1493,7 +1600,7 @@ Nonhuman Primate</h3>
     <div class="in-focus-eyebrow">In Focus — The Inaugural Lecture</div>
     <div class="in-focus-grid">
       <div class="in-focus-meta">
-        <div class="in-focus-date">August 2026 · Exact date to be confirmed · 4:00 PM</div>
+        <div class="in-focus-date">20 August 2026 · AB-1/101 · 4:00 PM</div>
         <h2 class="in-focus-title">Know Thyself: Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate</h2>
         <div class="in-focus-speaker-block">
           <div class="in-focus-speaker-name">Prof. Anindya Sinha</div>
