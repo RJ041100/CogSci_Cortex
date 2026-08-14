@@ -101,6 +101,20 @@
     line-height: 1.55;
   }
 
+  /* Groups the logo and text side-by-side */
+  .header-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Adds clean spacing between the logo and the text */
+  }
+
+  /* Controls the size of the institute logo */
+  .header-logo {
+    height: 48px; /* Adjust this to make the logo larger or smaller */
+    width: auto;
+    object-fit: contain;
+  }
+  
   .dept-mark .institute-line {
     display: block;
     color: var(--accent);
@@ -369,18 +383,21 @@
 /* ============ FEATURED TALK IMAGE UPDATES ============ */
 .featured-talk-inner {
   display: grid;
-  grid-template-columns: 1fr auto; /* Text takes left side, image takes right */
+  grid-template-columns: 1fr; /* Stacks everything in one column */
   gap: 40px;
   align-items: center;
+  justify-items: center; /* Centers both the text and the image in the column */
+  text-align: center; /* Ensures the text looks neat when stacked below */
 }
 
 .featured-image-wrapper {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%; /* Creates a perfect circle */
+  width: 420px;
+  height: 420px;
+  border-radius: 70%; /* Creates a perfect circle */
   border: 3px solid var(--accent); /* Uses your established ruby red accent */
   overflow: hidden;
   flex-shrink: 0; /* Prevents the image from shrinking */
+  order: -1; /* Pushes the image above the text */
 }
 
 .featured-photo {
@@ -496,6 +513,15 @@
   position: relative;
   overflow: hidden;
   padding: 24px;
+}
+
+.placeholder-image {
+  width: 100%;
+  max-width: 180px; /* Adjust this to make the image larger or smaller */
+  height: auto;
+  object-fit: contain; /* Ensures the entire image remains visible inside the card  */
+  margin: 0 auto 16px auto;
+  display: block;
 }
 
 .question-mark-wrapper {
@@ -1289,10 +1315,16 @@
 <header>
   <div class="container">
     <div class="header-grid">
-      <div class="dept-mark">
-        <span class="institute-line">IIT Gandhinagar</span>
-        <span class="dept-line">Dept. of Cognitive &amp; Brain Sciences <span class="accent-mark">—</span></span>
+      
+      <div class="header-brand-group">
+        <img src="dept_logo.png" alt="IITGN Logo" class="header-logo">
+        
+        <div class="dept-mark">
+          <span class="institute-line">IIT Gandhinagar</span>
+          <span class="dept-line">Dept. of Cognitive &amp; Brain Sciences <span class="accent-mark">—</span></span>
+        </div>
       </div>
+
       <nav>
         <ul>
           <li><a href="#upcoming">Upcoming</a></li>
@@ -1326,6 +1358,8 @@
   </div>
 </header>
 
+
+
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -1357,10 +1391,10 @@
     
           <div class="featured-text">
           <div class="featured-eyebrow">
-          <span class="pulse"></span> Next Talk
+          <span class="pulse"></span> Upcoming Talk
           </div>
           <div class="featured-date">20 August 2026</div>
-          <div class="featured-title">The Evolutionary Roots of Mind</div>
+          <div class="featured-title">Know Thyself: Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate</div>
           <div class="featured-speaker"><strong>Prof. Anindya Sinha</strong></div>
           <div class="featured-details">
             <span>AB-1 101</span>
@@ -1412,7 +1446,9 @@
             <span>2026</span>
           </div>
         </div>
-        <h3 class="talk-title">The Evolutionary Roots of Mind</h3>
+        <h3 class="talk-title">Know Thyself:
+Cognitive Agency, Experiential Knowledge and Conception of the Self in a
+Nonhuman Primate</h3>
         <p class="talk-speaker">
           <strong>Prof. Anindya Sinha</strong><br>
           NIAS · TDU, Bangalore
@@ -1422,18 +1458,20 @@
           <span class="talk-arrow">→</span>
         </div>
       </div>
-
+      
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark">?</div>
+          <div class="question-mark"> <img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
           <div class="question-shadow"></div>
         </div>
         <span class="placeholder-label">Sep Talk TBD</span>
       </div>
 
+
+
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark">?</div>
+          <div class="question-mark"> <img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
           <div class="question-shadow"></div>
         </div>
         <span class="placeholder-label">Oct Talk TBD</span>
@@ -1441,7 +1479,7 @@
 
       <div class="talk-card talk-card-placeholder">
         <div class="question-mark-wrapper">
-          <div class="question-mark">?</div>
+          <div class="question-mark"><img src="Logo.png" alt="Upcoming Talk" class="placeholder-image floating-image"></div>
           <div class="question-shadow"></div>
         </div>
         <span class="placeholder-label">Nov Talk TBD</span>
@@ -1456,7 +1494,7 @@
     <div class="in-focus-grid">
       <div class="in-focus-meta">
         <div class="in-focus-date">August 2026 · Exact date to be confirmed · 4:00 PM</div>
-        <h2 class="in-focus-title">The Evolutionary Roots of <em>Mind</em></h2>
+        <h2 class="in-focus-title">Know Thyself: Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate</h2>
         <div class="in-focus-speaker-block">
           <div class="in-focus-speaker-name">Prof. Anindya Sinha</div>
           <div class="in-focus-speaker-affil">
@@ -1469,7 +1507,7 @@
       <div class="in-focus-content">
         <div class="in-focus-section-label">About this Talk</div>
         <p class="in-focus-abstract placeholder">
-          In his upcoming talk, "The Evolutionary Roots of Mind" , Prof. Anindya Sinha will explore how complex social dynamics drove the evolution of advanced cognition in primates. Drawing on over three decades of research with bonnet macaques, he will examine their remarkable ability to evaluate relationships, form mental representations, and develop a rudimentary sense of self. Challenging traditional, language-centric definitions of consciousness, this lecture will delve into the philosophical and empirical questions surrounding primate ethology, and will offer a profound look into the conscious decision-making and unique, lived experiences of more-than-human lifeworlds.
+          In his upcoming talk, "Know Thyself: Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate" , Prof. Anindya Sinha will explore how complex social dynamics drove the evolution of advanced cognition in primates. Drawing on over three decades of research with bonnet macaques, he will examine their remarkable ability to evaluate relationships, form mental representations, and develop a rudimentary sense of self. Challenging traditional, language-centric definitions of consciousness, this lecture will delve into the philosophical and empirical questions surrounding primate ethology, and will offer a profound look into the conscious decision-making and unique, lived experiences of more-than-human lifeworlds.
           
         </p>
         <div class="in-focus-section-label">About the Speaker</div>
@@ -1517,14 +1555,14 @@
 
    
     <div class="archive-video-wrapper">
-    <iframe 
+    <!-- <iframe 
         src="https://youtu.be/VkuLHz5ARbI?si=13rZLcfumKunsRfN" 
         title="Cortex Lecture Series Archive" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen>
-    </iframe>
-</div>
+    </iframe> -->
+    </div>
   </div>
 </section>
 
@@ -1557,7 +1595,7 @@
       <p style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; color: rgba(243, 237, 225, 0.85); margin-bottom: 28px; max-width: 420px;">
         The Cortex Lectures are open in hybrid format to the academic community across India. Register once with your institutional email and receive the recurring Zoom link, monthly announcements, and reminders before each talk.
       </p>
-      <a href="https://forms.google.com/REPLACE-WITH-YOUR-REGISTRATION-FORM-URL" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 16px 26px; border: 1px solid var(--highlight); color: var(--highlight); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s;">
+      <a href="https://forms.gle/LW1pW5udAGe377gP6" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; padding: 16px 26px; border: 1px solid var(--highlight); color: var(--highlight); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s;">
         Register for Hybrid Attendance
         <span style="font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; letter-spacing: 0; text-transform: none;">↗</span>
       </a>
@@ -1618,8 +1656,8 @@
 
   const cortexEvent = {
     title: 'Cortex Lectures — Inaugural Lecture (Prof. Anindya Sinha)',
-    description: 'Inaugural lecture of the Cortex Lectures series, featuring Prof. Anindya Sinha (NIAS / TDU, Bangalore) on the evolutionary roots of mind. Exact date within August 2026 to be confirmed.\\n\\nHosted by the Department of Cognitive & Brain Sciences, IIT Gandhinagar.',
-    location: 'Hall 204, IIT Gandhinagar, Palaj, Gandhinagar 382055',
+    description: 'Inaugural lecture of the Cortex Lectures series, featuring Prof. Anindya Sinha (NIAS / TDU, Bangalore) on Know Thyself: Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate. Exact date within August 2026 to be confirmed.\\n\\nHosted by the Department of Cognitive & Brain Sciences, IIT Gandhinagar.',
+    location: 'AB-1/ 101, IIT Gandhinagar, Palaj, Gandhinagar 382055',
     startUTC: '20260820T103000Z',
     endUTC:   '20260820T113000Z',
     uid: 'cortex-2026-08-inaugural@iitgn.ac.in'

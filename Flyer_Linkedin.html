@@ -67,12 +67,34 @@
             flex-direction: column;
         }
 
+
+
+
+
         .flyer-header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Aligns the bottom of the text with the bottom of the logo */
             border-bottom: 2px solid var(--accent);
             padding-bottom: 20px;
             margin-bottom: 30px;
+            text-align: left;
         }
+
+        .header-text-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dept-logo {
+            max-height: 110px; /* Adjust this value to make the logo larger or smaller */
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 5px; /* Minor tweak to optically align it with the text */
+        }
+
+
+
 
         .flyer-eyebrow {
             font-family: 'DM Mono', monospace;
@@ -178,13 +200,15 @@
         .featured-title {
             font-family: 'Fraunces', serif;
             font-weight: 400;
-            font-size: 52px;
-            line-height: 1.05;
+            font-size: 28px; /* Reduced from 52px to fit the longer title */
+            line-height: 1.2; /* Increased slightly for better multi-line readability */
             color: var(--accent);
             margin-bottom: 24px;
             letter-spacing: -0.02em;
             padding: 0 20px;
         }
+
+       
 
         .speaker-name {
             font-family: 'Fraunces', serif;
@@ -278,11 +302,15 @@
 
     <div class="flyer">
         <div class="flyer-content">
-            
+             
             <div class="flyer-header">
-                <div class="flyer-eyebrow">Inaugural Lecture</div>
-                <h1 class="flyer-series-name">The <em>Cortex</em> Series</h1>
+                <div class="header-text-block">
+                    <div class="flyer-eyebrow">Inaugural Lecture</div>
+                    <h1 class="flyer-series-name">Cortex<em> Lectures </em> Series </h1>
+                </div>
+                <img src="/media/rj/Projects/Cortex/Imges_Used/dept_logo.png" alt="Department Logo" class="dept-logo">
             </div>
+
 
             <div class="talk-details">
                 <div class="portrait-container">
@@ -298,10 +326,11 @@
                 </div>
 
                 <div class="featured-date">20 August 2026 — 4:00 PM</div>
-                <h2 class="featured-title">The Evolutionary Roots of Mind</h2>
+                <h2 class="featured-title">Know Thyself:
+                    Cognitive Agency, Experiential Knowledge and Conception of the Self in a Nonhuman Primate</h2>
                 <div class="speaker-name">Prof. Anindya Sinha</div>
                 <div class="speaker-affiliation">National Institute of Advanced Studies &amp;<br>University of Trans-Disciplinary Health Sciences and Technology</div>
-                <div class="talk-location">AB-1 201 · IITGN · Hybrid Attendance Available</div>
+                <div class="talk-location"><strong>AB-1 101 · IITGN · Hybrid Attendance Available</strong></div>
             </div>
 
             <div class="flyer-footer">
@@ -314,10 +343,10 @@
                 <div class="qr-section">
                     <div class="qr-text">
                         Scan to register<br>
-                        <strong>cortex.iitgn.ac.in</strong>
+                        <strong>https://rj041100.github.io/<br>CogSci_Cortex/</strong>
                     </div>
                     <div class="qr-image-wrapper">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://iitgn.ac.in&color=8b2a1a" alt="QR Code to register">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rj041100.github.io/CogSci_Cortex/" alt="QR Code to register">
                     </div>
 
                     
